@@ -16,7 +16,10 @@ This is a modified version of [original code](https://github.com/sniklaus/pytorc
 The separable convolution layer is implemented in CUDA using CuPy, which is why CuPy is a required dependency. It can be installed using `pip install cupy` or alternatively using one of the provided binary packages as outlined in the CuPy repository.
 
 ## To Prepare Training Dataset
-Two input frames and one output frame are in a folder and the input frames should be named as frame0.png, frame2.png and the output frame should be named as frame1.png. You can name each folder freely.  
+Two input frames and one output frame are in a folder and the input frames should be named as frame0.png, frame2.png and the output frame should be named as frame1.png. You can name each folder freely.
+
+The training dataset is not provided. We prepared training dataset from cropping [UCF101 dataset](http://crcv.ucf.edu/data/UCF101.php). When creating training dataset, we measured Optical Flow of each frame to balance the motion magnitude of whole dataset.
+
 An example of train dataset is in [db](./db) folder.
 
 ## Train
