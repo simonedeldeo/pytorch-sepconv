@@ -1,5 +1,5 @@
 
-# pytorch-sepconv
+# pytorch-sepconv(Backward Implemented)
 This is a reference implementation of Video Frame Interpolation via Adaptive Separable Convolution [1] using PyTorch. Given two frames, it will make use of [adaptive convolution](http://graphics.cs.pdx.edu/project/adaconv) [2] in a separable manner to interpolate the intermediate frame. Should you be making use of the work, please cite the paper [1].
 
 This is a modified version of [original code](https://github.com/sniklaus/pytorch-sepconv).
@@ -8,16 +8,16 @@ This is a modified version of [original code](https://github.com/sniklaus/pytorc
 
 ## Difference from the original code
 1. This is a backpropagation implemented version, therefore trainable.
-2. run.py was separated into model.py, train.py and test.py
-3. A module to read dataset(TorchDB.py) was added.
-4. Test module(TestModule.py) for the evaluation with Middlebury dataset was added.
+2. run.py was separated into model.py, [train.py](./train.py) and [test.py](./test.py)
+3. A module to read dataset([TorchDB.py](./TorchDB.py)) was added.
+4. Test module([TestModule.py](./TestModule.py)) for the evaluation with Middlebury dataset was added.
 
 ## setup
 The separable convolution layer is implemented in CUDA using CuPy, which is why CuPy is a required dependency. It can be installed using `pip install cupy` or alternatively using one of the provided binary packages as outlined in the CuPy repository.
 
 ## To Prepare Training Dataset
 Two input frames and one output frame are in a folder and the input frames should be named as frame0.png, frame2.png and the output frame should be named as frame1.png. You can name each folder freely.  
-An example of train dataset is in db folder.
+An example of train dataset is in [db](./db) folder.
 
 ## Train
 ```
