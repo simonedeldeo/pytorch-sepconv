@@ -8,7 +8,7 @@ This is a modified version of [original code](https://github.com/sniklaus/pytorc
 
 ## Difference from the original code
 1. This is a __backpropagation implemented__ version, therefore trainable.
-2. run.py was devided into model.py, [train.py](./train.py) and [test.py](./test.py)
+2. run.py was devided into [model.py](./model.py), [train.py](./train.py) and [test.py](./test.py)
 3. A module to read dataset([TorchDB.py](./TorchDB.py)) was added.
 4. Test module([TestModule.py](./TestModule.py)) for the evaluation with Middlebury dataset was added.
 
