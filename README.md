@@ -5,7 +5,7 @@
 - The input frames are .jpg, not .png (see TorchDB.py)
 - The model is loaded in a different way in train.py, to use the pretrained models linked in https://github.com/sniklaus/sepconv-slomo
 - In TestModule.py, the test folders are not fixed but are obtained dynamically, using os.listdir(input_dir); also, the filenames were changed to frame0.jpg / frame1.jpg / frame2.jpg
-- In test.py, the kernel_size was fixed to 51 (which is the one of the pretrained model, and in general the loading of the model is similar to the one in train.py
+- In test.py, the kernel_size was fixed to 51 (which is the one of the pretrained model), and in general the loading of the model is similar to the one in train.py
 - model.cuda() was added in test.py
 
 **The whole notebooks folder is new: it contains python notebooks ready to run on Google Colab**
