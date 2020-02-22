@@ -29,9 +29,9 @@ class DBreader_frame_interpolation(Dataset):
         self.file_len = len(self.triplet_list)
 
     def __getitem__(self, index):
-        frame0 = self.transform(Image.open(self.triplet_list[index] + "/frame0.png"))
-        frame1 = self.transform(Image.open(self.triplet_list[index] + "/frame1.png"))
-        frame2 = self.transform(Image.open(self.triplet_list[index] + "/frame2.png"))
+        frame0 = self.transform(Image.open(self.triplet_list[index] + "/frame0.jpg"))
+        frame1 = self.transform(Image.open(self.triplet_list[index] + "/frame1.jpg"))
+        frame2 = self.transform(Image.open(self.triplet_list[index] + "/frame2.jpg"))
 
         return frame0, frame1, frame2
 

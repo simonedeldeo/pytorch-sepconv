@@ -57,11 +57,10 @@ def main():
 
     if args.load_model is not None:
         checkpoint = torch.load(args.load_model)
-        kernel_size = checkpoint['kernel_size']
+        kernel_size = args.kernel
         model = SepConvNet(kernel_size=kernel_size)
-        state_dict = checkpoint['state_dict']
+        state_dict = torch.load(args.load_model)
         model.load_state_dict(state_dict)
-        model.epoch = checkpoint['epoch']
     else:
         kernel_size = args.kernel
         model = SepConvNet(kernel_size=kernel_size)
