@@ -20,16 +20,16 @@ class Middlebury_eval:
 
 class Middlebury_other:
     def __init__(self, input_dir, gt_dir):
-        self.im_list = ['Beanbags', 'Dimetrodon', 'DogDance', 'Grove2', 'Grove3', 'Hydrangea', 'MiniCooper', 'RubberWhale', 'Urban2', 'Urban3', 'Venus', 'Walking']
+        self.im_list = os.listdir(input_dir)
         self.transform = transforms.Compose([transforms.ToTensor()])
 
         self.input0_list = []
         self.input1_list = []
         self.gt_list = []
         for item in self.im_list:
-            self.input0_list.append(to_variable(self.transform(Image.open(input_dir + '/' + item + '/frame10.png')).unsqueeze(0)))
-            self.input1_list.append(to_variable(self.transform(Image.open(input_dir + '/' + item + '/frame11.png')).unsqueeze(0)))
-            self.gt_list.append(to_variable(self.transform(Image.open(gt_dir + '/' + item + '/frame10i11.png')).unsqueeze(0)))
+            self.input0_list.append(to_variable(self.transform(Image.open(input_dir + '/' + item + '/frame0.jpg')).unsqueeze(0)))
+            self.input1_list.append(to_variable(self.transform(Image.open(input_dir + '/' + item + '/frame2.jpg')).unsqueeze(0)))
+            self.gt_list.append(to_variable(self.transform(Image.open(gt_dir + '/' + item + '/frame1.jpg')).unsqueeze(0)))
 
     def Test(self, model, output_dir, logfile=None, output_name='output.png'):
         av_psnr = 0

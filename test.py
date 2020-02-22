@@ -23,11 +23,11 @@ def main():
     TestDB = Middlebury_other(input_dir, gt_dir)
     print("Loading the Model...")
     checkpoint = torch.load(ckpt)
-    kernel_size = checkpoint['kernel_size']
+    kernel_size = 51
     model = SepConvNet(kernel_size=kernel_size)
-    state_dict = checkpoint['state_dict']
-    model.load_state_dict(torch.load(state_dict))
-    model.epoch = checkpoint['epoch']
+    state_dict = torch.load(ckpt)
+    model.load_state_dict(state_dict)
+    model.cuda()
 
     print("Test Start...")
     TestDB.Test(model, output_dir)
