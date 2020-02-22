@@ -1,5 +1,14 @@
 
 # pytorch-sepconv(Backward Implemented)
+
+## Difference from the master branch
+- The input frames are .jpg, not .png (see TorchDB.py)
+- The model is loaded in a different way in train.py, to use the pretrained models linked in https://github.com/sniklaus/sepconv-slomo
+- In TestModule.py, the test folders are not fixed but are obtained dynamically, using os.listdir(input_dir); also, the filenames were changed to frame0.jpg / frame1.jpg / frame2.jpg
+- In test.py, the kernel_size was fixed to 51 (which is the one of the pretrained model, and in general the loading of the model is similar to the one in train.py
+- model.cuda() was added in test.py
+- __The whole _notebooks folder was created: it contains python notebooks ready to run on Google Colab__
+
 This is a reference implementation of Video Frame Interpolation via Adaptive Separable Convolution [1] using PyTorch. Given two frames, it will make use of [adaptive convolution](http://graphics.cs.pdx.edu/project/adaconv) [2] in a separable manner to interpolate the intermediate frame. Should you be making use of the work, please cite the paper [1].
 
 This is a modified version of [original code](https://github.com/sniklaus/pytorch-sepconv).
